@@ -29,6 +29,21 @@ class AndyTestCase extends DrupalWebTestCase {
     $this->assertText('Hello body', 'Found the page body');
   }
 
+  public function testBlockRendering() {
+    // Create admin user object
+    $admin = $this->drupalCreateUser(array('administer blocks'));
+    $this->drupalLogin($admin);
+
+    // Configure the block
+    $this->drupalPost('admin/structure/block', [
+        'blocks[system_powered-by][region]' => 'content',
+      ], t('Save blocks'));
+
+    // Go to front page, make sure the block is visible
+    $this->drupalGet('node');
+    $this->assertText('Powered by', 'Found the powered by block');
+  }
+
   }
 
 }
