@@ -16,3 +16,15 @@ function andyt_page_callback() {
   return 'Hello body';
 }
 
+/**
+ * Implements hook_form_alter().
+ */
+function andyt_form_alter(&$form, $form_state, $form_id) {
+  if ('user_register_form' === $form_id) {
+    $form['#validate'][] = function($form, $form_state) {
+      if (strpos(strtolower($form_state['values']['mail']), '@gmail.com')) {
+        form_set_error('mail', t('No GMAILLLLLL'));
+      }
+    };
+  }
+}
