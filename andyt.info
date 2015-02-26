@@ -1,0 +1,8 @@
+; andyt.info
+
+name = Andy Test
+version =  7.x-1.0-dev
+description = For SimpleTest testing
+core = 7.x
+
+files[] = andyt.test

@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * @file andyt.test
+ */
+class AndyTestCase extends DrupalWebTestCase {
+
+  public static function getInfo() {
+    return array(
+        'name'        => 'AndyT first test case',
+        'description' => 'Test cases for foobar!',
+        'group'       => 'DrupalTesting',
+    );
+  }
+
+  public function testFoo() {
+    $this->assertTrue(true, 'Yeah TRUE!');
+    $this->assertTrue(false, 'Yeah TRUE!');
+  }
+
+}
