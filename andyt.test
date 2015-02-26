@@ -13,9 +13,22 @@ class AndyTestCase extends DrupalWebTestCase {
     );
   }
 
+  protected function setUp() {
+    $modules[] = 'andyt';
+    parent::setUp($modules);
+  }
+
   public function testFoo() {
     $this->assertTrue(true, 'Yeah TRUE!');
-    $this->assertTrue(false, 'Yeah TRUE!');
+    # $this->assertTrue(false, 'Yeah TRUE!');
+  }
+
+  public function testHello() {
+    $this->drupalGet('andyt');
+    $this->assertText('Hello title', 'Found the page title');
+    $this->assertText('Hello body', 'Found the page body');
+  }
+
   }
 
 }

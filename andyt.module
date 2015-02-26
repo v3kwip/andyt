@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * Implements hook_menu().
+ */
+function andyt_menu() {
+  $items['andyt'] = array(
+      'title'            => 'Hello title',
+      'access arguments' => array('access content'),
+      'page callback'    => 'andyt_page_callback',
+  );
+  return $items;
+}
+
+function andyt_page_callback() {
+  return 'Hello body';
+}
+
